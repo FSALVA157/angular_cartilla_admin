@@ -1,1 +1,41 @@
-<p>lista works!</p>
+<div>
+  <h3>
+   LISTADO DE MANEJO DE VISITAS PROHIBIDAS ONLINE
+    <!-- <small>
+      <a
+        href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/basic/filter.component.ts"
+        target="_blank"
+      >
+        Source
+      </a>
+    </small> -->
+  </h3>
+  
+    <input
+      type="text"
+      style="padding:8px;margin:15px auto;width:30%; margin-left: 5px;"
+      placeholder="Filtro de Columna DNI..."
+      (keyup)="updateFilter($event)"
+    />
+    <button type="button" class="btn btn-danger" style="margin-left: 5px;">Danger</button>
+    <button type="button" class="btn btn-warning" style="margin-left: 5px;">Warning</button>
+
+  
+  <ngx-datatable
+    #table
+    class="dark"
+    class="material"
+    [columns]="columns"
+    [columnMode]="ColumnMode.force"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [limit]="10"
+    [rows]="rows"
+  >
+  </ngx-datatable>
+</div>
+
+
+
+
