@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IVisita, Convert } from 'src/app/models/visita.interface';
 import { ConexionService } from 'src/app/services/conexion.service';
-import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
-//import { DatatableComponent } from '../../../projects/swimlane/ngx-datatable/src/lib/components/datatable.component';
-//import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { ColumnMode, DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
 
 
 @Component({
@@ -20,6 +18,8 @@ export class ListaComponent implements OnInit {
 
   temp: IVisita[] = [];
 
+  selected: IVisita[] = [];
+
   columns = [
     { prop: 'dni' }, 
     { name: 'Apellido' },
@@ -34,26 +34,20 @@ export class ListaComponent implements OnInit {
   table!: DatatableComponent;
 
   ColumnMode = ColumnMode;
+  SelectionType = SelectionType;
   //
 
   constructor(
     private conexionService: ConexionService
   ) {
     if(this.lista.length == 0){
-      console.log( `la lista tiene ${this.lista.length}`);
-      console.log("PETICIONANDO A FIREBASE");
-      this.getFirebase();
+          this.getFirebase();
+          
     }else{
-      console.log( `la lista tiene ${this.lista.length}`);
-      console.log("RACARGA SIN PETICION");
+      
       this.reload();
     }
-    //   conexionService.getList().subscribe(items => {
-    //   this.lista = items;
-    //   console.log(this.lista);
-    //   this.temp = [...this.lista];
-    //   this.rows = this.lista;
-    // });
+    
   }  
 
   ngOnInit(): void {
@@ -66,6 +60,7 @@ export class ListaComponent implements OnInit {
       console.log(this.lista);
       this.temp = [...this.lista];
       this.rows = this.lista;
+      this.selected = [this.lista[1]];
     });
   }
 
@@ -91,6 +86,13 @@ export class ListaComponent implements OnInit {
     this.table.offset = 0;
   }
 
+  onSelect({ selected }: any) {
+    console.log('Select Event', selected, this.selected);
+  }
+
+  onActivate(event: any) {
+    console.log('Activate Event', event);
+  }
 
 
 

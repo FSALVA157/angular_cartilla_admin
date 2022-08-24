@@ -11,6 +11,7 @@
     </small> -->
   </h3>
   
+  <div style="float:left;width:75%">
     <input
       type="text"
       style="padding:8px;margin:15px auto;width:30%; margin-left: 5px;"
@@ -23,7 +24,6 @@
   
   <ngx-datatable
     #table
-    class="dark"
     class="material"
     [columns]="columns"
     [columnMode]="ColumnMode.force"
@@ -32,8 +32,22 @@
     rowHeight="auto"
     [limit]="10"
     [rows]="rows"
+    [selected]="selected"
+    [selectionType]="SelectionType.single"
+    (activate)="onActivate($event)"
+    (select)="onSelect($event)"
   >
   </ngx-datatable>
+</div>
+<div class="selected-column">
+  <h4>Selections</h4>
+  <ul>
+    <li *ngFor="let sel of selected">
+      {{ sel.dni }}
+    </li>
+    <li *ngIf="!selected.length">No Selections</li>
+  </ul>
+</div>
 </div>
 
 
