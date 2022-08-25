@@ -30,7 +30,7 @@ export class ConexionService {
     return this.items;
    }
 
-   addRegistro(data: IVisita){
-    this.itemsCollection.add(data);
+   addRegistro(reg: IVisita){
+    this.itemsCollection.add(reg);
    }
 }

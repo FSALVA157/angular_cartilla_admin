@@ -21,10 +21,10 @@ export class ListaComponent implements OnInit {
   selected: IVisita[] = [];
 
   columns = [
-    { prop: 'dni' }, 
+    { prop: 'id' }, 
+    { name: 'dni' },
     { name: 'Apellido' },
     { name: 'Nombre' },
-    // { name: 'DNI' },
     { name: 'Sexo' },
     { name: 'Categoria' },
     { name: 'Motivo' },
@@ -93,8 +93,4 @@ export class ListaComponent implements OnInit {
   onActivate(event: any) {
     console.log('Activate Event', event);
   }
-
-
-
-
 }

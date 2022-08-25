@@ -24,12 +24,12 @@ export class FormAddComponent implements OnInit {
 
   initForm(){
     this.forma = this.fb.group({
-      apellido:  ['Abdenur'],
-      nombre:    ['Abel'],
+      apellido:  [''],
+      nombre:    [''],
       categoria: ['ADULTO'],
-      dni:       ['31313131'],
-      motivo:    ['Faltar a la verdad'],
-      sexo:      ['masculino'],
+      dni:       [''],
+      motivo:    [''],
+      sexo:      [''],
     });
   }
 

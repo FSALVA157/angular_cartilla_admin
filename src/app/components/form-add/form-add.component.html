@@ -2,29 +2,31 @@
 <h4>Formulario <small> Agregar Prohibición </small></h4>
 <hr>
 
-<form  autocomplete="off"  [formGroup]="forma"  (ngSubmit)="guardar()">
+<form  autocomplete="off"  [formGroup]="forma"  (ngSubmit)="guardar()" class="bg-dark">
     
-    <div  class="form-group row">
-    <label  class="col-2 col-form-label">DNI</label>
-    <div  class="col-8">
-    <input  class="form-control"
-    type="text"
-    placeholder="Número de Documento"
-    formControlName="dni"
-    >
-    </div> </div> 
-    
-    <div  class="form-group row">
-        <label  class="col-2 col-form-label">Apellido</label>
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">DNI</label>
         <div  class="col-8">
-        <input  class="form-control"
-        type="text"
-        placeholder="Apellido"
-        formControlName="apellido"></div>
+            <input  class="form-control"
+            type="text"
+            placeholder="Número de Documento"
+            formControlName="dni"
+            >
+        </div>
+     </div> 
+    
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">Apellido</label>
+        <div  class="col-8">
+            <input  class="form-control"
+            type="text"
+            placeholder="Apellido"
+            formControlName="apellido">
+        </div>
     </div>
     
-    <div  class="form-group row">
-        <label  class="col-2 col-form-label">Apellido</label>
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">Apellido</label>
         <div  class="col-8">
         <input  class="form-control"
         type="text"
@@ -32,8 +34,8 @@
         formControlName="nombre"></div>
     </div>
 
-    <div  class="form-group row">
-        <label  class="col-2 col-form-label">Sexo</label>
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">Sexo</label>
         <div  class="col-8">
         <input  class="form-control"
         type="text"
@@ -44,8 +46,8 @@
 
 
 
-    <div  class="form-group row">
-        <label  class="col-2 col-form-label">Categoría</label>
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">Categoría</label>
         <div  class="col-8">
         <input  class="form-control"
         type="text"
@@ -54,8 +56,8 @@
         ></div>
     </div>
 
-    <div  class="form-group row">
-        <label  class="col-2 col-form-label">Motivo de Prohibición</label>
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">Motivo de Prohibición</label>
         <div  class="col-8">
         <input  class="form-control"
         type="text"
@@ -64,8 +66,8 @@
         ></div>
     </div>
      
-    <div  class="form-group row">
-        <label  class="col-2 col-form-label">&nbsp;</label>
+    <div  class="form-group row mb-5">
+        <label  class="col-2 col-form-label text-warning">&nbsp;</label>
         <div  class="input-group col-md-8">
         <button  type="submit"  class="btn btn-outline-primary btn-block">
         Guardar

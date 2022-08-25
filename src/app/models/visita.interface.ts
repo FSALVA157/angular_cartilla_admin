@@ -6,6 +6,7 @@
 //   const visita = Convert.toVisita(json);
 
 export interface IVisita {
+    id?: string,
     apellido:  string;
     categoria: string;
     dni:       string;

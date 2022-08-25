@@ -27,27 +27,28 @@
     class="material"
     [columns]="columns"
     [columnMode]="ColumnMode.force"
+    [summaryRow]="true"
     [headerHeight]="50"
     [footerHeight]="50"
     rowHeight="auto"
     [limit]="10"
     [rows]="rows"
     [selected]="selected"
-    [selectionType]="SelectionType.single"
-    (activate)="onActivate($event)"
+    [selectionType]="SelectionType.single"    
     (select)="onSelect($event)"
-  >
+  >  
   </ngx-datatable>
-</div>
-<div class="selected-column">
-  <h4>Selections</h4>
-  <ul>
-    <li *ngFor="let sel of selected">
-      {{ sel.dni }}
-    </li>
-    <li *ngIf="!selected.length">No Selections</li>
-  </ul>
-</div>
+  <!-- (activate)="onActivate($event)" -->
+      </div>
+      <div class="selected-column">
+        <h4>Selections</h4>
+        <ul>
+          <li *ngFor="let sel of selected">
+            {{ sel.id }}
+          </li>
+          <li *ngIf="!selected.length">No Selections</li>
+        </ul>
+      </div>
 </div>
 
 
