@@ -29,4 +29,8 @@ export class ConexionService {
    getList(){
     return this.items;
    }
+
+   addRegistro(data: IVisita){
+    this.itemsCollection.add(data);
+   }
 }

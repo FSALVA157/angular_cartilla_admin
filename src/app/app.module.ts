@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { ConexionService } from './services/conexion.service';
 import { ListaComponent } from './components/lista/lista.component';
 import { FormAddComponent } from './components/form-add/form-add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { FormAddComponent } from './components/form-add/form-add.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ConexionService
