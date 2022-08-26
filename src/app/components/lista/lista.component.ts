@@ -93,4 +93,12 @@ export class ListaComponent implements OnInit {
   onActivate(event: any) {
     console.log('Activate Event', event);
   }
+
+  //borrando un documento
+  deleteProhicion(){
+    if(this.selected.length>0){
+      this.conexionService.deleteRegistro(this.selected[0].id!);
+
+    }
+  }
 }

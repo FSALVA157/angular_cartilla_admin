@@ -18,8 +18,9 @@
       placeholder="Filtro de Columna DNI..."
       (keyup)="updateFilter($event)"
     />
-    <button type="button" class="btn btn-danger" style="margin-left: 5px;">Danger</button>
-    <button type="button" class="btn btn-warning" style="margin-left: 5px;">Warning</button>
+    <i class="far fa-trash-alt"></i>
+    <button type="button"  class="btn btn-danger" style="margin-left: 5px;" (click)="deleteProhicion()">Borrar</button>
+    <button type="button" class="btn btn-warning" style="margin-left: 5px;">Editar</button>
 
   
   <ngx-datatable

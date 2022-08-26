@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,9 +9,12 @@ import { IVisita } from 'src/app/models/visita.interface';
   providedIn: 'root'
 })
 export class ConexionService {
-
+  //manipulando colecciones
   private itemsCollection: AngularFirestoreCollection<IVisita>;
   items: Observable<IVisita[]>;
+
+  //manipulando documentos
+  private itemDoc: AngularFirestoreDocument<IVisita> | undefined;
 
   constructor(
     private afs: AngularFirestore
@@ -33,4 +36,10 @@ export class ConexionService {
    addRegistro(reg: IVisita){
     this.itemsCollection.add(reg);
    }
+
+   deleteRegistro(id: string){
+      this.itemDoc =  this.afs.doc<IVisita>(`prohibidas/${id}`);
+      this.itemDoc.delete();
+   }
+
 }
