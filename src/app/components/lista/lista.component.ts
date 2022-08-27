@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IVisita, Convert } from 'src/app/models/visita.interface';
 import { ConexionService } from 'src/app/services/conexion.service';
 import { ColumnMode, DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista',
@@ -19,6 +19,14 @@ export class ListaComponent implements OnInit {
   temp: IVisita[] = [];
 
   selected: IVisita[] = [];
+
+  swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+  })
 
   columns = [
     { prop: 'id' }, 
@@ -97,8 +105,41 @@ export class ListaComponent implements OnInit {
   //borrando un documento
   deleteProhicion(){
     if(this.selected.length>0){
-      this.conexionService.deleteRegistro(this.selected[0].id!);
-
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          try {
+            this.conexionService.deleteRegistro(this.selected[0].id!);
+            Swal.fire(
+              'Eliminado!',
+              'Usted ha eliminado un registro',
+              'success'
+            )            
+          } catch (e: any) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `Algo ha fallado! ${e.message}`,              
+            })
+          }
+        }else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          this.swalWithBootstrapButtons.fire(
+            'Se Cancelo el Borrado!',
+            'No se ha eliminado ningún Registro',
+            'error'
+          )
+        }
+      })
     }
   }
 }
