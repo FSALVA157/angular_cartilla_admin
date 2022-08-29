@@ -14,12 +14,18 @@ import { ListaComponent } from './components/lista/lista.component';
 import { FormAddComponent } from './components/form-add/form-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
-    FormAddComponent
+    FormAddComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     SweetAlert2Module,
