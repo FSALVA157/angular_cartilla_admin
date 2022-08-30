@@ -1,7 +1,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
-            <form class="login100-form validate-form flex-sb flex-w">
+            <form class="login100-form validate-form flex-sb flex-w" [formGroup]="forma">
 
                 <span class="login100-form-title p-b-51">
                     Login
@@ -10,11 +10,13 @@
                 <!-- <span class="text-danger">El correo es obligatorio</span> -->
                 <div class="wrap-input100 m-b-16">
                     <input class="input100" 
-                           type="text" 
+                           type="email" 
                            name="username" 
-                           placeholder="Username">
-
+                           placeholder="correo electrónico"
+                           formControlName="correo"                           
+                           >
                     <span class="focus-input100"></span>
+                    <small *ngIf="isValid('correo')" class="text-danger">El correo debe ser válido</small>
                 </div>
                 
                 <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
@@ -22,8 +24,11 @@
                     <input class="input100"
                            type="password" 
                            name="pass" 
-                           placeholder="Password">
+                           placeholder="Password"
+                           formControlName="password"
+                           >
                     <span class="focus-input100"></span>
+                    <small *ngIf="isValid('password')" class="text-danger">la clave es obligatoria y poseer mas de 6 caracteres</small>
                 </div>
                 
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
@@ -42,13 +47,12 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" type="submit">
+                    <button class="login100-form-btn" (click)="submitForm()" type="button">
                         Ingresar
                     </button>
                 </div>
 
             </form>
-        </div>
-    </div>
-</div>
+            <hr>
+
 
