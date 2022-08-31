@@ -14,6 +14,10 @@ export const environment = {
   }
 };
 
+/**variables de entorno de Authentication */
+export const url_root = "https://identitytoolkit.googleapis.com/v1";
+export const firebase_api_key = "AIzaSyBo-vZbq-88IeW_9p_mTrBFaJT7HZv7zmY";
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

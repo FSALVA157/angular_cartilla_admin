@@ -6,6 +6,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +39,8 @@ import { HomeComponent } from './components/home/home.component';
     AngularFireAuthModule,
     NgxDatatableModule,
     FormsModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     ConexionService

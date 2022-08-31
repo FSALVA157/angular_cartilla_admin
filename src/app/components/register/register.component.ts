@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserModel } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,8 @@ export class RegisterComponent implements OnInit {
   forma!: FormGroup
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService
   ) { 
     this.createForm();
   }
@@ -39,15 +43,25 @@ export class RegisterComponent implements OnInit {
   }
 
  
-  submitForm(){
-    console.log(this.forma);
+  submitForm(){    
     if(this.forma.invalid){
       Object.values(this.forma.controls).forEach(element=>{
         element.markAsTouched();
       })
+    }else{
+      const data = new UserModel(this.forma.get('nombre')!.value, this.forma.get('correo')!.value, this.forma.get('password')!.value );
+      this.authService.createNewUser(data).subscribe(res => {
+        console.log(res);
+      },(err)=>{
+        console.log(err.error.error.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `Algo ha fallado! ${err.error.error.message}`,              
+        })
+    }
+      );
     }
   }
-
-  
 
 }
